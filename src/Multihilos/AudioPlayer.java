@@ -55,7 +55,12 @@ public class AudioPlayer extends JFrame {
 
         playButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                playAudio();
+                Thread playThread = new Thread(new Runnable() {
+                    public void run() {
+                        playAudio();
+                    }
+                });
+                playThread.start();
             }
         });
 
@@ -149,7 +154,7 @@ public class AudioPlayer extends JFrame {
 
     private void addAudio() {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de audio", "wav", "mp3", "ogg"); // Puedes agregar más extensiones de archivos de audio si lo deseas
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de audio", "wav", "mp3", "ogg");
         fileChooser.setFileFilter(filter);
         fileChooser.setMultiSelectionEnabled(true);
 
@@ -171,5 +176,3 @@ public class AudioPlayer extends JFrame {
         });
     }
 }
-
-
