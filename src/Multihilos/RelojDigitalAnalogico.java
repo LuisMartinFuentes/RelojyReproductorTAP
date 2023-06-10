@@ -90,7 +90,7 @@ public class RelojDigitalAnalogico extends JFrame {
 
         setVisible(true);
 
-        mostrarRelojDigital(); // Mostrar reloj digital por defecto
+        mostrarRelojDigital(); 
 
         iniciarReloj();
     }
